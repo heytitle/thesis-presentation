@@ -1,0 +1,31 @@
+\providecommand{\bysame}{\leavevmode\hbox to3em{\hrulefill}\thinspace}
+\providecommand{\MR}{\relax\ifhmode\unskip\space\fi MR }
+% \MRhref is called by the amsart/book/proc definition of \MR.
+\providecommand{\MRhref}[2]{%
+  \href{http://www.ams.org/mathscinet-getitem?mr=#1}{#2}
+}
+\providecommand{\href}[2]{#2}
+\begin{thebibliography}{PMB13}
+
+\bibitem[HS97]{Hochreiter:1997:LSM:265493.264179}
+Sepp Hochreiter and J\"{u}rgen Schmidhuber, \emph{Long short-term memory},
+  Neural Comput. \textbf{9} (1997), no.~9, 1735--1780.
+
+\bibitem[Jae01]{JaegerESN}
+Herbert Jaeger, \emph{The ``echo state'' approach to analysing and training
+  recurrent neural networks-with an erratum note'}.
+
+\bibitem[KB14]{DBLP:journals/corr/KingmaB14}
+Diederik~P. Kingma and Jimmy Ba, \emph{Adam: {A} method for stochastic
+  optimization}, CoRR \textbf{abs/1412.6980} (2014).
+
+\bibitem[PMB13]{DBLP:conf/icml/PascanuMB13}
+Razvan Pascanu, Tomas Mikolov, and Yoshua Bengio, \emph{On the difficulty of
+  training recurrent neural networks}, Proceedings of the 30th International
+  Conference on Machine Learning, {ICML} 2013, Atlanta, GA, USA, 16-21 June
+  2013, 2013, pp.~1310--1318.
+
+\bibitem[TH]{RMSProp}
+T.~Tieleman and G.~Hinton, \emph{{RMSprop Gradient Optimization}}.
+
+\end{thebibliography}
