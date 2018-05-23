@@ -100,7 +100,7 @@ Example Applications
 			\begin{align*}
 				\ppartial{E}{\theta} &= \sum_{k=1}^{T} \ppartial{E}{\pvec{r}_T} \ppartial{\pvec{r}_T}{\pvec{r}_k} \ppartial{^+\pvec{r}_k}{\theta} \\
 				\ppartial{\pvec{r}_T}{\pvec{r}_k} &= \prod_{T \ge  i > k} \ppartial{\pvec{r}_i}{\pvec{r}_{i-1}} \\
-				&= \prod_{T \ge  i > k} \underbrace{(W^{\text{rec}})^{\color{red} T}}_{\textbf{!}}  \sigma'(\pvec{r}_{i-1})
+				&= \prod_{T \ge  i > k} \underbrace{(W^{\text{rec}})^{T}}_{\textbf{!}}  \text{diag}(\sigma'(\pvec{r}_{i-1}))
 			\end{align*}
 		}
 	
@@ -124,35 +124,35 @@ Example Applications
 \begin{frame}{Exploding and Varnishing Gradient Problems}
 	\begin{itemize}
 		\item<1->  The exponential term of $W^{\text{rec}}$ will dominate the calculation of $\ppartial{E}{\theta}$. 
-		\item<2-> Two problems can happen:
+		\item<1-> Two problems can happen:
 			\begin{itemize}
 				\item Exploding gradient ($\|\nabla_{\pvec{\theta}}E\| \rightarrow \infty $)  
 				\item Varnishing gradient ($\|\nabla_{\pvec{\theta}}E\| \rightarrow 0 $)  
 			\end{itemize}
-		\item<3-> The situation is determined by \textbf{spectral radius} of the matrix $\rho(W^{\text{rec}})$.
+		\item<1-> The situation is determined by \textbf{spectral radius} of the matrix $\rho(W^{\text{rec}})$.
 				\begin{itemize}
 					\item \textit{Spectral radius} of a matrix is its largest absolute eigenvalue.
 				\end{itemize}
 	\end{itemize}
 \end{frame}
 
-\begin{frame}<1-3>[label=explodinggradient]
+\begin{frame}[label=explodinggradient]
 \frametitle{Exploding Gradient}
 
-\only<1-3>{
+\only<1>{
 \begin{itemize}
-	\item<1-> happens when $\rho(W^{\text{rec}}) > 1$.
-	\item<2->[]
+	\item happens when $\rho(W^{\text{rec}}) > 1$ (for linear cases).
+	\item[]
 			 \begin{figure}[h]
 				\includegraphics [width=0.4\textwidth]{figures/exploding_gradient}
 				\caption{Error Function \citep{DBLP:conf/icml/PascanuMB13}.}
 			\end{figure}
-	\item<3-> causes training \textit{unstable}.
+	\item causes training \textit{unstable}.
 \end{itemize}
 
 }
 
-\only<4>{
+\only<2>{
 Exploding gradient can be alleviated by \textbf{clipping} the norm of the gradient.
 			\vspace*{\fill}
 				\begin{columns}
@@ -173,7 +173,7 @@ Exploding gradient can be alleviated by \textbf{clipping} the norm of the gradie
 }
 \end{frame}
 
-\againframe<4>{explodinggradient}
+%\againframe<2>{explodinggradient}
 
 
 \begin{frame}[label=varnishing_gradient]
@@ -183,7 +183,7 @@ Exploding gradient can be alleviated by \textbf{clipping} the norm of the gradie
 	\item causes RNNs to learn long-term dependencies with a slow progress.
 	\item \textbf{Solutions}
 		\begin{itemize}
-			\item Echo State Networks
+			\item Echo State Networks (ESNs)
 			\item Momentum Technique
 			\item Long Short-Term Memory Networks
 		\end{itemize}
@@ -196,31 +196,30 @@ Exploding gradient can be alleviated by \textbf{clipping} the norm of the gradie
 \frametitle{Echo State Networks \cite{JaegerESN}}
 	\begin{columns}
 		\column{0.5\textwidth}
-			\only<1-3>{					
-				The idea of ESNs is to create a large random reservoir RNN ($W^{\text{rec}}, W^{\text{in}}$). The matrix $W^{\text{rec}}$ is carefully constructed such that reservoir can keep signal \textbf{echoed} in the network for long time.
-		
-					\begin{itemize}
-						\item<2-> $W^{\text{rec}} \leftarrow \frac{\xi}{\rho(W^{\text{rec}}) }W^{\text{rec}}$ 
-					\end{itemize}
-					\only<3>{
-					ESNs can be viewed as a kernel trick mapping input to a high-dimensional space and learn a linear classifier ($W^{\text{out}}$) there.
-					}
+%			\only<1>{
+%
+%			}
+			\only<1>{
+			
+			The idea of ESNs is to create a large random reservoir RNN ($W^{\text{rec}}, W^{\text{in}}$). The matrix $W^{\text{rec}}$ is carefully constructed such that reservoir can keep signal \textbf{echoed} in the network for long time.
+			
+						\begin{align*}
+					\tilde{\pvec{h}}_t &= \tanh(W^{\text{in}}\pvec{x}_t+W^{\text{rec}}\pvec{h}_{t-1}), \\
+					\pvec{h}_t &= (1-\alpha)\pvec{h}_{t-1} + \alpha \tilde{\pvec{h}}_t, \\
+					\hat{\pvec{y}}_t &= W^{\text{out}}\text{concat}(\pvec{x}_t, \pvec{h}_t),
+				\end{align*}
+				where $W^{\text{rec}} \in \mathbb{R}^{M \times M}$ with $M$ is the number of reservior units, and $\alpha \in (0, 1]$ is the leaking rate.
+			
 			}
-			\only<4>{
-				
-		 		\textbf{Advantages}
-					 \begin{itemize}
-					 	\item Can be trained very fast.
-					 	\item Work well for low dimensional input.
-					 \end{itemize}
-		
-				 \pause
-		
-				 \textbf{Disadvantages}
-				 \begin{itemize}
-				 	\item Require experiences to initialize $W^{\text{rec}}$ sensibly.
-				 	\item Require a big reservoir to solve complex problems.
-				 \end{itemize}	
+			\only<2> {
+			To have the echo state property, the $W^{\text{rec}}$ is typically initialized as 
+				\begin{align*}
+				W^{\text{rec}} \leftarrow \frac{\xi}{\rho(W^{\text{rec}}) }W^{\text{rec}},
+				\end{align*}
+				where $\xi$ is a hyperparameter.
+			}
+			\only<3>{
+			ESNs can be viewed as a kernel trick mapping input to a high-dimensional space and learn a linear classifier ($W^{\text{out}}$) there.
 			}
 		
 		\column{0.5\textwidth}
@@ -232,10 +231,46 @@ Exploding gradient can be alleviated by \textbf{clipping} the norm of the gradie
 	\end{columns}
 \end{frame}
 
-%\begin{frame}
-%	\frametitle{Advantages and Disadvantages of ESNs}
-%
-%\end{frame}
+\begin{frame}
+	\frametitle{Example : ESNs for signal classification}
+	\only<1>{
+		Two classes of signal \{-1,1\}
+			\vspace*{\fill}
+			 \begin{figure}[h]
+				\includegraphics [width=0.5\textwidth]{figures/esn_toyexample}
+			\end{figure}
+			\vspace*{\fill}
+	}
+	\only<2>{
+			\vspace*{\fill}
+			 \begin{figure}[h]
+				\includegraphics [width=\textwidth]{figures/esn_toyexample2}
+			\end{figure}
+			\vspace*{\fill}
+	}
+		    
+
+\end{frame}
+
+\begin{frame}
+	\frametitle{Advantages and Disadvantages of ESNs}
+	\begin{columns}
+	\column{0.5\textwidth}
+		\textbf{Advantages}
+					 \begin{itemize}
+					 	\item Can be trained very fast.
+					 	\item Work well for low dimensional input.
+					 \end{itemize}
+
+	\column{0.5\textwidth}	
+					 \textbf{Disadvantages}
+				 \begin{itemize}
+				 	\item Require experiences to initialize $W^{\text{rec}}$ sensibly.
+				 	\item Require a big reservoir to solve complex problems.
+				 \end{itemize}	
+
+	\end{columns}				
+\end{frame}
 
 \subsection{Gradient Descent with Momentum}
 \begin{frame}
@@ -290,7 +325,7 @@ Exploding gradient can be alleviated by \textbf{clipping} the norm of the gradie
 
 \end{frame}
 
-\begin{frame}<1>[label=lstm]
+\begin{frame}[label=lstm]
 \frametitle{Computations in an LSTM cell}
 	\only<1>{
 		\begin{columns}
@@ -322,7 +357,32 @@ Exploding gradient can be alleviated by \textbf{clipping} the norm of the gradie
 		\end{columns}
 	}
 \end{frame}
-\againframe<2>{lstm}
+
+\begin{frame}[label=deep_rnn]
+\frametitle{Deep RNNs}
+%	\begin{enumerate}
+		\only<1>{- An RNN for image  segmentation \citep{DBLP:journals/corr/abs-1711-10151}.
+				\begin{figure}[h]
+					\includegraphics [width=0.8\textwidth]{figures/recurrent_segmentation}
+				\end{figure}
+		}
+		\only<2-3>{- Google's Neural Machine Translation System \citep{DBLP:journals/corr/WuSCLNMKCGMKSJL16}.
+			\only<2>{
+				\begin{figure}[h]
+					\includegraphics [width=\textwidth]{figures/gnmt}
+				\end{figure}
+			}
+			\only<3>{
+				\begin{figure}[h]
+					\includegraphics [width=0.6\textwidth]{figures/gnmt_attention}
+				\end{figure}
+			}
+		
+		}
+
+\end{frame}
+
+
 
 
 \begin{frame}[allowframebreaks]

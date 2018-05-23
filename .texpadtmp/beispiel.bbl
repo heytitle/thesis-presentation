@@ -1,3 +1,4 @@
+\newcommand{\etalchar}[1]{$^{#1}$}
 \providecommand{\bysame}{\leavevmode\hbox to3em{\hrulefill}\thinspace}
 \providecommand{\MR}{\relax\ifhmode\unskip\space\fi MR }
 % \MRhref is called by the amsart/book/proc definition of \MR.
@@ -5,7 +6,7 @@
   \href{http://www.ams.org/mathscinet-getitem?mr=#1}{#2}
 }
 \providecommand{\href}[2]{#2}
-\begin{thebibliography}{PMB13}
+\begin{thebibliography}{WSC{\etalchar{+}}16}
 
 \bibitem[HS97]{Hochreiter:1997:LSM:265493.264179}
 Sepp Hochreiter and J\"{u}rgen Schmidhuber, \emph{Long short-term memory},
@@ -19,6 +20,11 @@ Herbert Jaeger, \emph{The ``echo state'' approach to analysing and training
 Diederik~P. Kingma and Jimmy Ba, \emph{Adam: {A} method for stochastic
   optimization}, CoRR \textbf{abs/1412.6980} (2014).
 
+\bibitem[MSMS17]{DBLP:journals/corr/abs-1711-10151}
+Lane McIntosh, David Sussillo, Niru Maheswaranathan, and Jonathon Shlens,
+  \emph{Recurrent segmentation for variable computational budgets}, CoRR
+  \textbf{abs/1711.10151} (2017).
+
 \bibitem[PMB13]{DBLP:conf/icml/PascanuMB13}
 Razvan Pascanu, Tomas Mikolov, and Yoshua Bengio, \emph{On the difficulty of
   training recurrent neural networks}, Proceedings of the 30th International
@@ -27,5 +33,15 @@ Razvan Pascanu, Tomas Mikolov, and Yoshua Bengio, \emph{On the difficulty of
 
 \bibitem[TH]{RMSProp}
 T.~Tieleman and G.~Hinton, \emph{{RMSprop Gradient Optimization}}.
+
+\bibitem[WSC{\etalchar{+}}16]{DBLP:journals/corr/WuSCLNMKCGMKSJL16}
+Yonghui Wu, Mike Schuster, Zhifeng Chen, Quoc~V. Le, Mohammad Norouzi, Wolfgang
+  Macherey, Maxim Krikun, Yuan Cao, Qin Gao, Klaus Macherey, Jeff Klingner,
+  Apurva Shah, Melvin Johnson, Xiaobing Liu, Lukasz Kaiser, Stephan Gouws,
+  Yoshikiyo Kato, Taku Kudo, Hideto Kazawa, Keith Stevens, George Kurian,
+  Nishant Patil, Wei Wang, Cliff Young, Jason Smith, Jason Riesa, Alex Rudnick,
+  Oriol Vinyals, Greg Corrado, Macduff Hughes, and Jeffrey Dean, \emph{Google's
+  neural machine translation system: Bridging the gap between human and machine
+  translation}, CoRR \textbf{abs/1609.08144} (2016).
 
 \end{thebibliography}
