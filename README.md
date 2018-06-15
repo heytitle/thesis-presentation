@@ -1,6 +1,4 @@
-# "DNNs with a State" Lecture slides
-## for Deep Neural Networks SS18 course
-
+# DNN-SS18 : "DNNs with a State" Lecture slides
 
 ## File structure
 ```
@@ -27,5 +25,5 @@
 ```
 
 ## Figures
-Figures included in the slides are PDFs taken from `./figures`.
+Some figures included in the slides are PDFs taken from `./figures`.
 Their SVGs can be found in `./figures/svg`.
