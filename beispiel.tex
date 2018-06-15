@@ -232,19 +232,35 @@ Exploding gradient can be alleviated by \textbf{clipping} the norm of the gradie
 \end{frame}
 
 \begin{frame}
-	\frametitle{Example : ESNs for signal classification}
+	\frametitle{An example of the echo state property}
 	\only<1>{
-		Two classes of signal \{-1,1\}
 			\vspace*{\fill}
 			 \begin{figure}[h]
-				\includegraphics [width=0.5\textwidth]{figures/esn_toyexample}
+				\includegraphics [width=0.45\textwidth]{figures/esn_toyexample}
 			\end{figure}
 			\vspace*{\fill}
 	}
+%	\only<2>{
+%			\vspace*{\fill}
+%			 \begin{figure}[h]
+%				\includegraphics [width=0.8\textwidth]{figures/esn_toyexample_enlarge}
+%			\end{figure}
+%			\vspace*{\fill}
+%	}
 	\only<2>{
+
+			An ESN with $\alpha=0.4$ and $\rho(W^{\text{rec}}) = 1.5$.
 			\vspace*{\fill}
 			 \begin{figure}[h]
-				\includegraphics [width=\textwidth]{figures/esn_toyexample2}
+				\includegraphics [width=0.8\textwidth]{figures/esn_toyexample_improperly_normalized_wrec}
+			\end{figure}
+			\vspace*{\fill}
+	}
+	\only<3>{
+		An ESN with $\alpha=0.4$ and $\rho(W^{\text{rec}}) = 0.8$.
+			\vspace*{\fill}
+			 \begin{figure}[h]
+				\includegraphics [width=0.8\textwidth]{figures/esn_toyexample_properly_normalized_wrec}
 			\end{figure}
 			\vspace*{\fill}
 	}
@@ -272,31 +288,32 @@ Exploding gradient can be alleviated by \textbf{clipping} the norm of the gradie
 	\end{columns}				
 \end{frame}
 
-\subsection{Gradient Descent with Momentum}
-\begin{frame}
-\frametitle{Gradient Descent with Momentum}
-\only<1>{
-\begin{itemize}
-    \item Standard Gradient Descent 
-		$$
-		w \leftarrow w - \lambda \frac{\partial J}{\partial w}
-		$$
-	\item Adam \cite{DBLP:journals/corr/KingmaB14}
-		$$
-		w \leftarrow w - \lambda \frac{\partial J}{\partial w} + someformular
-		$$
-	\item RMSProp \cite{RMSProp}
-\end{itemize}
-}
-\only<2>{
-
-			 \begin{figure}[h]
-				\includegraphics [width=0.5\textwidth]{figures/gradient_methods}
-			\end{figure}
-
-\url{https://cdn.rawgit.com/EmilienDupont/aaf429be5705b219aaaf8d691e27ca87/raw/d5c6bd2483479c8187f5b49e329d84651b930e09/index.html}
-}
-\end{frame}
+%
+%\subsection{Gradient Descent with Momentum}
+%\begin{frame}
+%\frametitle{Gradient Descent with Momentum}
+%\only<1>{
+%\begin{itemize}
+%    \item Standard Gradient Descent 
+%		$$
+%		w \leftarrow w - \lambda \frac{\partial J}{\partial w}
+%		$$
+%	\item Adam \cite{DBLP:journals/corr/KingmaB14}
+%		$$
+%		w \leftarrow w - \lambda \frac{\partial J}{\partial w} + someformular
+%		$$
+%	\item RMSProp \cite{RMSProp}
+%\end{itemize}
+%}
+%\only<2>{
+%
+%			 \begin{figure}[h]
+%				\includegraphics [width=0.5\textwidth]{figures/gradient_methods}
+%			\end{figure}
+%
+%\url{https://cdn.rawgit.com/EmilienDupont/aaf429be5705b219aaaf8d691e27ca87/raw/d5c6bd2483479c8187f5b49e329d84651b930e09/index.html}
+%}
+%\end{frame}
 %\againframe<2>{momentum}
 
 \subsection{Long Short-Term Memory \& Gated RNNs}
@@ -366,7 +383,7 @@ Exploding gradient can be alleviated by \textbf{clipping} the norm of the gradie
 					\includegraphics [width=0.8\textwidth]{figures/recurrent_segmentation}
 				\end{figure}
 		}
-		\only<2-3>{- Google's Neural Machine Translation System \citep{DBLP:journals/corr/WuSCLNMKCGMKSJL16}.
+		\only<2-4>{- Google's Neural Machine Translation System \citep{DBLP:journals/corr/WuSCLNMKCGMKSJL16}.
 			\only<2>{
 				\begin{figure}[h]
 					\includegraphics [width=\textwidth]{figures/gnmt}
@@ -374,11 +391,25 @@ Exploding gradient can be alleviated by \textbf{clipping} the norm of the gradie
 			}
 			\only<3>{
 				\begin{figure}[h]
-					\includegraphics [width=0.6\textwidth]{figures/gnmt_attention}
+					\includegraphics [width=0.7\textwidth]{figures/gnmt_attention}
 				\end{figure}
 			}
-		
+			\only<4>{
+				\\ \vspace{0.5cm} \hspace{1cm} $\forall t, 1 \le t \le M $
+				\begin{align*}
+							s_t &= \text{AttentionFunction}(\boldsymbol{y}_{i-1}, \hat{\boldsymbol{x}}_t) \\
+							p_t &= \text{exp}(s_t)/ \sum_{t=1}^{M} \text{exp}(s_t) \\
+							\boldsymbol{a}_i &= \sum_{t=1}^M p_t \hat{\boldsymbol{x}}_t
+				\end{align*}
+				where 
+				\begin{itemize}
+					\item $M$ is a number of tokens in the sequence.
+					\item \textit{AttentionFunction} can be implemented using a feed forward neural network.
+				\end{itemize}
+
+			}
 		}
+		
 
 \end{frame}
 

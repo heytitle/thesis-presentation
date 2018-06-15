@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="1026px" height="283px" viewBox="0 0 1026 283" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 49.2 (51160) - http://www.bohemiancoding.com/sketch -->
+    <title>machine_translation</title>
+    <desc>Created with Sketch.</desc>
+    <defs>
+        <path d="M24,86 L495,86 C499.418278,86 503,89.581722 503,94 L503,193 C503,197.418278 499.418278,201 495,201 L24,201 C19.581722,201 16,197.418278 16,193 L16,94 C16,89.581722 19.581722,86 24,86 Z" id="path-1"></path>
+        <mask id="mask-2" maskContentUnits="userSpaceOnUse" maskUnits="objectBoundingBox" x="0" y="0" width="487" height="115" fill="white">
+            <use xlink:href="#path-1"></use>
+        </mask>
+        <path d="M522,86 L993,86 C997.418278,86 1001,89.581722 1001,94 L1001,193 C1001,197.418278 997.418278,201 993,201 L522,201 C517.581722,201 514,197.418278 514,193 L514,94 C514,89.581722 517.581722,86 522,86 Z" id="path-3"></path>
+        <mask id="mask-4" maskContentUnits="userSpaceOnUse" maskUnits="objectBoundingBox" x="0" y="0" width="487" height="115" fill="white">
+            <use xlink:href="#path-3"></use>
+        </mask>
+    </defs>
+    <g id="machine_translation" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <path d="M68,232.65157 L68,181.478011" id="Path-2-Copy-3" stroke="#979797" stroke-width="3"></path>
+        <path id="Path-2-Copy-3-decoration-1" d="M71,192.278011 L68,181.478011 L65,192.278011" stroke="#979797" stroke-width="3"></path>
+        <path d="M580,104.611366 L580,47.5331664" id="Path-2-Copy-4" stroke="#979797" stroke-width="3"></path>
+        <path id="Path-2-Copy-4-decoration-1" d="M583,58.3331664 L580,47.5331664 L577,58.3331664" stroke="#979797" stroke-width="3"></path>
+        <path d="M195,232.65157 L195,181.478011" id="Path-2-Copy-10" stroke="#979797" stroke-width="3"></path>
+        <path id="Path-2-Copy-10-decoration-1" d="M198,192.278011 L195,181.478011 L192,192.278011" stroke="#979797" stroke-width="3"></path>
+        <path d="M707,104.611366 L707,47.5331664" id="Path-2-Copy-18" stroke="#979797" stroke-width="3"></path>
+        <path id="Path-2-Copy-18-decoration-1" d="M710,58.3331664 L707,47.5331664 L704,58.3331664" stroke="#979797" stroke-width="3"></path>
+        <path d="M321,232.65157 L321,181.478011" id="Path-2-Copy-5" stroke="#979797" stroke-width="3"></path>
+        <path id="Path-2-Copy-5-decoration-1" d="M324,192.278011 L321,181.478011 L318,192.278011" stroke="#979797" stroke-width="3"></path>
+        <path d="M833,104.611366 L833,47.5331664" id="Path-2-Copy-7" stroke="#979797" stroke-width="3"></path>
+        <path id="Path-2-Copy-7-decoration-1" d="M836,58.3331664 L833,47.5331664 L830,58.3331664" stroke="#979797" stroke-width="3"></path>
+        <path d="M449,232.65157 L449,181.478011" id="Path-2-Copy-6" stroke="#979797" stroke-width="3"></path>
+        <path id="Path-2-Copy-6-decoration-1" d="M452,192.278011 L449,181.478011 L446,192.278011" stroke="#979797" stroke-width="3"></path>
+        <path d="M961,104.611366 L961,47.5331664" id="Path-2-Copy-8" stroke="#979797" stroke-width="3"></path>
+        <path id="Path-2-Copy-8-decoration-1" d="M964,58.3331664 L961,47.5331664 L958,58.3331664" stroke="#979797" stroke-width="3"></path>
+        <path d="M76,140 L156.501553,140" id="Path-2-Copy-9" stroke="#979797" stroke-width="3"></path>
+        <path id="Path-2-Copy-9-decoration-1" d="M145.701553,143 L156.501553,140 L145.701553,137" stroke="#979797" stroke-width="3"></path>
+        <path d="M587,139 L667.501553,139" id="Path-2-Copy-14" stroke="#979797" stroke-width="3"></path>
+        <path id="Path-2-Copy-14-decoration-1" d="M656.701553,142 L667.501553,139 L656.701553,136" stroke="#979797" stroke-width="3"></path>
+        <path d="M202,140 L282.501553,140" id="Path-2-Copy-11" stroke="#979797" stroke-width="3"></path>
+        <path id="Path-2-Copy-11-decoration-1" d="M271.701553,143 L282.501553,140 L271.701553,137" stroke="#979797" stroke-width="3"></path>
+        <path d="M713,139 L793.501553,139" id="Path-2-Copy-15" stroke="#979797" stroke-width="3"></path>
+        <path id="Path-2-Copy-15-decoration-1" d="M782.701553,142 L793.501553,139 L782.701553,136" stroke="#979797" stroke-width="3"></path>
+        <path d="M328,140 L408.501553,140" id="Path-2-Copy-12" stroke="#979797" stroke-width="3"></path>
+        <path id="Path-2-Copy-12-decoration-1" d="M397.701553,143 L408.501553,140 L397.701553,137" stroke="#979797" stroke-width="3"></path>
+        <path d="M839,139 L919.501553,139" id="Path-2-Copy-16" stroke="#979797" stroke-width="3"></path>
+        <path id="Path-2-Copy-16-decoration-1" d="M908.701553,142 L919.501553,139 L908.701553,136" stroke="#979797" stroke-width="3"></path>
+        <path d="M457,140 L537.501553,140" id="Path-2-Copy-13" stroke="#979797" stroke-width="3"></path>
+        <path id="Path-2-Copy-13-decoration-1" d="M526.701553,143 L537.501553,140 L526.701553,137" stroke="#979797" stroke-width="3"></path>
+        <text id="I" font-family="Helvetica" font-size="30" font-weight="normal" fill="#000000">
+            <tspan x="63.3325195" y="268">I</tspan>
+        </text>
+        <text id="Ich" font-family="Helvetica" font-size="30" font-weight="normal" fill="#000000">
+            <tspan x="559.490234" y="34">Ich</tspan>
+        </text>
+        <g id="Group-2" transform="translate(39.000000, 112.000000)">
+            <circle id="Oval-4" stroke="#979797" stroke-width="4" fill="#D8D8D8" cx="29" cy="29" r="29"></circle>
+            <text id="RNN" font-family="Helvetica-Bold, Helvetica" font-size="16" font-weight="bold" fill="#000000">
+                <tspan x="11" y="34">RNN</tspan>
+            </text>
+        </g>
+        <g id="Group-2-Copy-4" transform="translate(550.000000, 111.000000)">
+            <circle id="Oval-4" stroke="#979797" stroke-width="4" fill="#D8D8D8" cx="29" cy="29" r="29"></circle>
+            <text id="RNN" font-family="Helvetica-Bold, Helvetica" font-size="16" font-weight="bold" fill="#000000">
+                <tspan x="11" y="34">RNN</tspan>
+            </text>
+        </g>
+        <g id="Group-2-Copy" transform="translate(166.000000, 112.000000)">
+            <circle id="Oval-4" stroke="#979797" stroke-width="4" fill="#D8D8D8" cx="29" cy="29" r="29"></circle>
+            <text id="RNN" font-family="Helvetica-Bold, Helvetica" font-size="16" font-weight="bold" fill="#000000">
+                <tspan x="11" y="34">RNN</tspan>
+            </text>
+        </g>
+        <g id="Group-2-Copy-5" transform="translate(677.000000, 111.000000)">
+            <circle id="Oval-4" stroke="#979797" stroke-width="4" fill="#D8D8D8" cx="29" cy="29" r="29"></circle>
+            <text id="RNN" font-family="Helvetica-Bold, Helvetica" font-size="16" font-weight="bold" fill="#000000">
+                <tspan x="11" y="34">RNN</tspan>
+            </text>
+        </g>
+        <g id="Group-2-Copy-2" transform="translate(293.000000, 112.000000)">
+            <circle id="Oval-4" stroke="#979797" stroke-width="4" fill="#D8D8D8" cx="29" cy="29" r="29"></circle>
+            <text id="RNN" font-family="Helvetica-Bold, Helvetica" font-size="16" font-weight="bold" fill="#000000">
+                <tspan x="11" y="34">RNN</tspan>
+            </text>
+        </g>
+        <g id="Group-2-Copy-6" transform="translate(804.000000, 111.000000)">
+            <circle id="Oval-4" stroke="#979797" stroke-width="4" fill="#D8D8D8" cx="29" cy="29" r="29"></circle>
+            <text id="RNN" font-family="Helvetica-Bold, Helvetica" font-size="16" font-weight="bold" fill="#000000">
+                <tspan x="11" y="34">RNN</tspan>
+            </text>
+        </g>
+        <g id="Group-2-Copy-3" transform="translate(420.000000, 112.000000)">
+            <circle id="Oval-4" stroke="#979797" stroke-width="4" fill="#D8D8D8" cx="29" cy="29" r="29"></circle>
+            <text id="RNN" font-family="Helvetica-Bold, Helvetica" font-size="16" font-weight="bold" fill="#000000">
+                <tspan x="11" y="34">RNN</tspan>
+            </text>
+        </g>
+        <g id="Group-2-Copy-7" transform="translate(931.000000, 111.000000)">
+            <circle id="Oval-4" stroke="#979797" stroke-width="4" fill="#D8D8D8" cx="29" cy="29" r="29"></circle>
+            <text id="RNN" font-family="Helvetica-Bold, Helvetica" font-size="16" font-weight="bold" fill="#000000">
+                <tspan x="11" y="34">RNN</tspan>
+            </text>
+        </g>
+        <text id="can’t" font-family="Helvetica" font-size="30" font-weight="normal" fill="#000000">
+            <tspan x="166.31543" y="268">can’t</tspan>
+        </text>
+        <text id="kann" font-family="Helvetica" font-size="30" font-weight="normal" fill="#000000">
+            <tspan x="677.473145" y="34">kann</tspan>
+        </text>
+        <text id="speak" font-family="Helvetica" font-size="30" font-weight="normal" fill="#000000">
+            <tspan x="281.473145" y="268">speak</tspan>
+        </text>
+        <text id="kein" font-family="Helvetica" font-size="30" font-weight="normal" fill="#000000">
+            <tspan x="806.48291" y="34">kein</tspan>
+        </text>
+        <text id="German" font-family="Helvetica" font-size="30" font-weight="normal" fill="#000000">
+            <tspan x="397.31543" y="268">German</tspan>
+        </text>
+        <text id="Deutsch" font-family="Helvetica" font-size="30" font-weight="normal" fill="#000000">
+            <tspan x="909.473145" y="34">Deutsch</tspan>
+        </text>
+        <use id="Rectangle-3" stroke="#000000" mask="url(#mask-2)" stroke-width="6" opacity="0.135960821" stroke-dasharray="7" xlink:href="#path-1"></use>
+        <use id="Rectangle-3-Copy" stroke="#000000" mask="url(#mask-4)" stroke-width="6" opacity="0.135960821" stroke-dasharray="7" xlink:href="#path-3"></use>
+        <text id="Encoder" font-family="Helvetica-Bold, Helvetica" font-size="15" font-weight="bold" fill="#000000">
+            <tspan x="232.492676" y="77">Encoder</tspan>
+        </text>
+        <text id="Decoder" font-family="Helvetica-Bold, Helvetica" font-size="15" font-weight="bold" fill="#000000">
+            <tspan x="745.489014" y="220">Decoder</tspan>
+        </text>
+    </g>
+</svg>
