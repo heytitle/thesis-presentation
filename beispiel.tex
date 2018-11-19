@@ -57,41 +57,22 @@
 
 \begin{frame}{Recurrent Neural Networks (RNNs)}
 
-\only<1>{
+	\begin{itemize}
+		\item \textbf{Successful applications:} \\ $\rhd$ machine translation \citep{DBLP:journals/corr/WuSCLNMKCGMKSJL16}, image captioning \citep{DBLP:conf/cvpr/VinyalsTBE15,DBLP:conf/nips/VaswaniSPUJGKP17}
+	\end{itemize}
 	\begin{figure}[h]
 		\includegraphics [width=\textwidth]{figures/present_rnn_unfold_1}
 	\end{figure}
-}
-
-%\only<2>{
-%	\begin{figure}[h]
-%		\includegraphics [width=0.4\textwidth]{figures/present_rnn_unfold_2}
-%	\end{figure}
-%}
-
-\only<2>{
-	\begin{itemize}
-		\item Applications: sentiment analysis, NLP, machine translation, and image captioning
-	\end{itemize}
-	\begin{figure}[h]
-		\includegraphics [width=0.8\textwidth]{figures/present_rnn_unfold}
-	\end{figure}
-}
-%\only<3->{
-%	\begin{itemize}
-%		\item Typical neural networks have \textbf{a couple of millions} learnable parameters.
-%	\end{itemize}
-%}
  	
 \end{frame}
 
 \begin{frame}{Explainability}
 \begin{itemize}
-	\item Ability to provide sensible explanation towards how input associates to a particular output.
-	\item For example, why does the RNN classify this text as a positive review?
+	\item Ability to provide \textbf{sensible explanation} towards how input associates to a certain prediction
+	\item \textbf{Analogy:} why does the RNN classify this text as a positive review?
 
 	\begin{figure}[h]
-		\includegraphics [width=0.65\textwidth]{figures/present_explanation_rnn}
+		\includegraphics [width=0.8\textwidth]{figures/present_explanation_rnn}
 	\end{figure}
 	
 %	\item Why do we need explainable models?\begin{itemize}
@@ -137,7 +118,7 @@
 	
 	\item Layer-wise Relevance Propagation (LRP) \citep{BinderLayerWiseRelevancePropagation2016} 
 		\begin{itemize}
-			\item Distributing relevance based on neurons' activities
+			\item Distributing relevance based on \textbf{neurons' activities}
 			\begin{columns}
 			\column{0.5\textwidth}{
 				\begin{figure}[h]
@@ -199,8 +180,9 @@
 	\item <1-3> \textbf{Problem:} Majority-Sample Sequence Classification
 \only<1>{
 	\newline
-	$\rhd$ Minimum accuracy 98\% for MNIST and 89\% for FashionMNIST \\
-	$\rhd$ Sequence length: 12 \big($\{\x_t \in \mathbb{R}^{28\times7} \}_{t=1}^{12}$ \big)
+	$\rhd$ Sequence length: \textbf{12} \big($\{\x_t \in \mathbb{R}^{28\times7} \}_{t=1}^{12}$ \big) \\
+	$\rhd$ Minimum accuracy 98\% for MNIST and 89\% for FashionMNIST
+
 
  \begin{figure}[h]
 	\includegraphics [width=0.65\textwidth]{figures/present_setting_1}
@@ -260,10 +242,11 @@ Cosine Similarity Evaluation
 
 \begin{enumerate}
 
-	\item<1->LSTM \citep{HochreiterLongShortTermMemory1997} with tanh being replaced by ReLU (R-LSTM)
+	\item<1->LSTM \citep{HochreiterLongShortTermMemory1997} 
 
 	\only<1>{
-				--- Gating units are ignored during explaining \citep{ArrasExplainingRecurrentNeural2017}. 
+				--- Ignore gating units during explaining \citep{ArrasExplainingRecurrentNeural2017} \\
+				--- Replace tanh by ReLU (R-LSTM) 
 		\vfill
 		 \begin{figure}[h]
 			\includegraphics [width=\textwidth]{figures/present_rlstm}
@@ -282,7 +265,7 @@ Cosine Similarity Evaluation
 		\vfill
 		}
 		
-	\item<3> { Lateral Connections for convolutional layers (Conv$^+$)
+	\item<3> { Lateral connections for convolutional layers (Conv$^+$)
 		\only<3>{
 			\vfill
 		 \begin{figure}[h]
@@ -355,18 +338,24 @@ Cosine Similarity Evaluation
 \end{frame}
 
 
-\begin{frame}{Conclusion}
+\begin{frame}[allowframebreaks=0.99,t]{Conclusion}
 
 \begin{itemize}
 	\item \textbf{Deeper and LSTM-type RNNs} have more explainable predictions.
 	\item \textbf{Stationary dropout} could improve model's explainability.
 	\item Explainability of RNNs should be considered in two aspects:
+	 \begin{figure}[h]
+	\includegraphics [width=0.65\textwidth]{figures/present_coarse_fine_aspects}
+\end{figure}
 		\begin{itemize}
-			\item \textbf{Coarse-gained}: relevance adequately propagated to the relevant input steps \\
-					--- related to recurrent mechanism (solution: LSTMs)
-			\item \textbf{Fine-gained}: soundness of each input's explanation.\\
-					--- related to the choice of input layers (i.e. convolutional layer for image data)
+			\item \textbf{Coarse-gained}: relevance adequately propagated to the relevant steps \\
+					--- solution: better recurrent mechanism (i.e. LSTMs)
+			\item \textbf{Fine-gained}: soundness of each step's explanation\\
+					--- solution: choice of input layers (i.e. convolution and pooling layers for image data)
 		\end{itemize}
+
+\framebreak
+
 	\item Part of this work will appear in: \\
 { \small \vspace{0.2cm}
 Rieger, L., Chormai, P., Montavon, G., Hansen, L. K., \& Müller, K.-R. (2018). \textbf{Structuring Neural Networks for More Explainable Predictions.} In H. Jair Escalante, S. Escalera, I. Guyon, X. Baró, Y. Güçlütürk, U. Güçlü, \& M. A. J. van Gerven (Eds.), Explainable and Interpretable Models in Computer Vision and Machine Learning (1st ed., p. 299). Springer International Publishing.
