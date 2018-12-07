@@ -9,7 +9,6 @@
 
 
 
-
 \usepackage[]{algorithm2e}
 \usepackage{caption}
 \captionsetup[figure]{labelformat=empty}
@@ -19,10 +18,11 @@
 
 
 % Die ueblichen Angaben
-\title{Designing Recurrent Neural Networks for Explainability}
-\subtitle{\today}
-\author[TU Berlin]{Pattarawat Chormai}
-\institute{Technische Universität Berlin}
+\title{Designing Recurrent Neural Networks for Explainability
+}
+%\subtitle{\today}
+\author[Pattarawat Chormai  $\mid$ \today]{Pattarawat Chormai}
+\institute{Master's thesis supervised by Prof. Klaus-Robert M\"{u}ller \& Dr. Gr\'{e}goire Montavon}
 
 % Eigenes Logo einfuegen:
 \renewcommand{\pathtomylogo}{}
@@ -50,7 +50,7 @@
 
 \begin{itemize}
 	\item Impact of the architecture of RNNs on explainability
-	\item Are deep RNNs more explainable? 
+	\item Do deep RNNs have more explainable predictions? 
 	\item Are there ways to make RNNs more explainable?
 \end{itemize}
 \end{frame}
@@ -102,11 +102,11 @@
 \begin{frame}[allowframebreaks=0.95,t]{Explanation Methods}
 
 \begin{enumerate}
-	\item Sensitivity Analysis \citep{SimonyanDeepConvolutionalNetworks2013}
+	\item Sensitivity Analysis \citep{SimonyanDeepConvolutionalNetworks2013} (SA)
 			\begin{align*}
 				R_i(\x) = \bigg ( \ppartial{f(\x)}{x_i} \bigg )^2
 			\end{align*}
-	\item Guided Backprop \citep{SpringenbergStrivingSimplicityAll2015a} \\
+	\item Guided Backprop \citep{SpringenbergStrivingSimplicityAll2015a} (GB) \\
 		\begin{itemize}
 			\item Developed for explaining \textbf{ReLU}-based CNNs
 		\end{itemize}
@@ -116,7 +116,7 @@
 			\end{align*}
 	\framebreak
 	
-	\item Layer-wise Relevance Propagation (LRP) \citep{BinderLayerWiseRelevancePropagation2016} 
+	\item Layer-wise Relevance Propagation \citep{BinderLayerWiseRelevancePropagation2016}  (LRP) 
 		\begin{itemize}
 			\item Distributing relevance based on \textbf{neurons' activities}
 			\begin{columns}
@@ -138,7 +138,7 @@
 		\end{itemize}
 	\vspace{3cm}
 	
-	 \item Deep Taylor Decomposition  \citep{MontavonExplainingnonlinearclassification2017}
+	 \item Deep Taylor Decomposition  \citep{MontavonExplainingnonlinearclassification2017} (DTD)
 		\begin{itemize}
 			\item LRP's theoretical view for explaining \textbf{ReLU-based} architectures
 			\begin{align*}
@@ -177,25 +177,18 @@
 
 \begin{frame}{Experimental Setup}
 \begin{itemize}
-	\item <1-3> \textbf{Problem:} Majority-Sample Sequence Classification
+	\item <1-2> \textbf{Problem:} Majority-Sample Sequence Classification (MNIST-MAJ, FashionMNIST-MAJ)
 \only<1>{
 	\newline
 	$\rhd$ Sequence length: \textbf{12} \big($\{\x_t \in \mathbb{R}^{28\times7} \}_{t=1}^{12}$ \big) \\
-	$\rhd$ Minimum accuracy 98\% for MNIST and 89\% for FashionMNIST
+	$\rhd$ Minimum accuracy 98\% for MNIST-MAJ and 89\% for FashionMNIST-MAJ
 
 
  \begin{figure}[h]
-	\includegraphics [width=0.65\textwidth]{figures/present_setting_1}
+	\includegraphics [width=0.55\textwidth]{figures/present_setting_2}
 \end{figure}
 }
-
-\only<2>{
- \begin{figure}[h]
-	\includegraphics [width=0.65\textwidth]{figures/present_setting_2}
-\end{figure}
-
-}
-	\item <3> \textbf{Evaluation:} Cosine similarity (averaged over test samples)
+\item <2> \textbf{Evaluation:} Cosine similarity (averaged over test samples)
  \begin{figure}[h]
 	\includegraphics [width=0.85\textwidth]{figures/present_evaluation}
 \end{figure}
@@ -218,13 +211,24 @@
 Sample Relevance Heatmaps
 \vfill
  \begin{figure}[h]
-	\includegraphics [width=\textwidth]{figures/present_exp1_result_heatmap}
+	\includegraphics [width=0.8\textwidth]{figures/present_exp1_result_heatmap_only_mnist}
+\end{figure}
+\vfill
+
+}
+\only<3>{
+Sample Relevance Heatmaps
+\vfill
+ \begin{figure}[h]
+	\includegraphics [width=0.8\textwidth]{figures/present_exp1_result_heatmap_2_only_mnist}
 \end{figure}
 \vfill
 
 }
 
-\only<3>{
+
+
+\only<4>{
 Cosine Similarity Evaluation
 \vfill
  \begin{figure}[h]
@@ -238,14 +242,23 @@ Cosine Similarity Evaluation
 \end{frame}
 \begin{frame}{Experiment 2: More Explainable Models}
 
-\only<1-3>{
+\only<1> {
+\textbf{Motivation:} addressing the improper relevance assignment
+\vfill
+ \begin{figure}[h]
+	\includegraphics [width=0.8\textwidth]{figures/present_exp2_motivation_only_mnist}
+\end{figure}
+\vfill
+
+}
+\only<2-4>{
 
 \begin{enumerate}
 
-	\item<1->LSTM \citep{HochreiterLongShortTermMemory1997} 
+	\item<2->LSTM \citep{HochreiterLongShortTermMemory1997} 
 
-	\only<1>{
-				--- Ignore gating units during explaining \citep{ArrasExplainingRecurrentNeural2017} \\
+	\only<2>{
+				--- Ignore gating neurons during explaining \citep{ArrasExplainingRecurrentNeural2017} \\
 				--- Replace tanh by ReLU (R-LSTM) 
 		\vfill
 		 \begin{figure}[h]
@@ -254,10 +267,10 @@ Cosine Similarity Evaluation
 		\vfill
 
 	}
-	\item<2-> 
-	Stationary Dropout 
-		\citep{GalTheoreticallyGroundedApplication2016}  (-SD)
-		\only<2>{
+	\item<3-> 
+	Stationary Dropout (\textit{Variational Recurrent}
+		\citep{GalTheoreticallyGroundedApplication2016}) 
+		\only<3>{
 		\vfill
 		 \begin{figure}[h]
 			\includegraphics [width=0.9\textwidth]{figures/present_dropout_comparison}
@@ -265,8 +278,8 @@ Cosine Similarity Evaluation
 		\vfill
 		}
 		
-	\item<3> { Lateral connections for convolutional layers (Conv$^+$)
-		\only<3>{
+	\item<4> { Lateral connections for convolutional layers (Conv$^+$)
+		\only<4>{
 			\vfill
 		 \begin{figure}[h]
 			\includegraphics [width=0.6\textwidth]{figures/present_conv_lat_rlstm}
@@ -278,30 +291,30 @@ Cosine Similarity Evaluation
 \end{enumerate}
 }
 
-		\only<4>{
-		Sample Relevance Heatmaps
-		\vfill
-		
-		 \begin{figure}[h]
-			\includegraphics [width=\textwidth]{figures/present_exp2_result_heatmap_1}
-		\end{figure}
-		
-		\vfill
-		
-		}
 		\only<5>{
 		Sample Relevance Heatmaps
 		\vfill
 		
 		 \begin{figure}[h]
-			\includegraphics [width=\textwidth]{figures/present_exp2_result_heatmap_2}
+			\includegraphics [width=0.8\textwidth]{figures/present_exp2_result_heatmap_1_only_mnist}
+		\end{figure}
+		
+		\vfill
+		
+		}
+		\only<6>{
+		Sample Relevance Heatmaps
+		\vfill
+		
+		 \begin{figure}[h]
+			\includegraphics [width=0.8\textwidth]{figures/present_exp2_result_heatmap_2_only_mnist}
 		\end{figure}
 		
 		\vfill
 		
 		}
 		
-		\only<6>{
+		\only<7>{
 Cosine Similarity Evaluation
 \vfill
  \begin{figure}[h]
@@ -311,12 +324,12 @@ Cosine Similarity Evaluation
 
 }
 		
-		\only<7>{
+		\only<8>{
 		Sample Relevance Heatmaps
 		\vfill
 		
 		 \begin{figure}[h]
-			\includegraphics [width=\textwidth]{figures/present_exp2_result_heatmap_3}
+			\includegraphics [width=0.8\textwidth]{figures/present_exp2_result_heatmap_3_only_mnist}
 		\end{figure}
 		
 		\vfill
@@ -324,7 +337,7 @@ Cosine Similarity Evaluation
 		}
 
 
-\only<8>{
+\only<9>{
 Cosine Similarity Evaluation
 \vfill
  \begin{figure}[h]
@@ -338,43 +351,71 @@ Cosine Similarity Evaluation
 \end{frame}
 
 
-\begin{frame}[allowframebreaks=0.99,t]{Conclusion}
+\begin{frame}{Conclusion}
 
 \begin{itemize}
-	\item \textbf{Deeper and LSTM-type RNNs} have more explainable predictions.
+	\item \textbf{Deep and LSTM-type RNNs} have more explainable predictions.
 	\item \textbf{Stationary dropout} could improve model's explainability.
 	\item Explainability of RNNs should be considered in two aspects:
 	 \begin{figure}[h]
 	\includegraphics [width=0.65\textwidth]{figures/present_coarse_fine_aspects}
 \end{figure}
 		\begin{itemize}
-			\item \textbf{Coarse-gained}: relevance adequately propagated to the relevant steps \\
+			\item \textbf{Coarse-gained}: relevance quantities adequately propagated to relevant steps \\
 					--- solution: better recurrent mechanism (i.e. LSTMs)
 			\item \textbf{Fine-gained}: soundness of each step's explanation\\
 					--- solution: choice of input layers (i.e. convolution and pooling layers for image data)
 		\end{itemize}
-
-\framebreak
-
-	\item Part of this work will appear in: \\
-{ \small \vspace{0.2cm}
-Rieger, L., Chormai, P., Montavon, G., Hansen, L. K., \& Müller, K.-R. (2018). \textbf{Structuring Neural Networks for More Explainable Predictions.} In H. Jair Escalante, S. Escalera, I. Guyon, X. Baró, Y. Güçlütürk, U. Güçlü, \& M. A. J. van Gerven (Eds.), Explainable and Interpretable Models in Computer Vision and Machine Learning (1st ed., p. 299). Springer International Publishing.
-
-}
-
 \end{itemize}
 \end{frame}
 
 
 \begin{frame}{}
-\vfill \centering
-\LARGE \textbf{Q\&A}
+\vfill 
+\begin{center}
+\LARGE \textbf{Q\&A}	
+\end{center}
+
+\vfill
+
+
+\begin{itemize}
+	\item[$\blacktriangleright$] Part of this work is in \\
+{ \small \vspace{0.2cm}
+
+Rieger, L., Chormai, P., Montavon, G., Hansen, L. K., \& Müller, K. R. (2018). \textbf{Structuring Neural Networks for More Explainable Predictions.} In \textit{Explainable and Interpretable Models in Computer Vision and Machine Learning} (pp. 115-131). Springer, Cham.
+} 
+\end{itemize}
+
+
+\end{frame}
+
+\begin{frame}
+\vfill
+ \begin{figure}[h]
+ 	\frametitle{FashionMNIST Heatmaps}
+	\includegraphics [width=0.8\textwidth]{figures/present_backup_fmnist_heatmaps}
+\end{figure}
 \vfill
 \end{frame}
+
+\begin{frame}
+\vfill
+ \begin{figure}[h]
+ 	\frametitle{Model Accuracy}
+	\includegraphics [width=0.8\textwidth]{figures/model_accuracy}
+\end{figure}
+\vfill
+	
+\end{frame}
+
 
 \begin{frame}[allowframebreaks]
         \frametitle{References}
         \bibliographystyle{amsalpha}
         \bibliography{references.bib}
 \end{frame}
+
+
+
 \end{document}
